@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "AVS",
+  "description": "AVS",
+  "type": "object",
+  "properties": {
+    "rand" : { "type": "string" },
+    "autn": { "type" : "string"},
+    "ck" : { "type" : "string" },
+    "ik" : { "type" : "string"},
+    "xres" : { "type" : "string"}
+  },
+  "required": ["rand", "autn", "ck", "ik", "xres"]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Imsi",
+  "description": "Imsi with a list of AVS",
+  "definitions": {
+    "avs": {
+      "type": "string",
+      "properties": {
+        "rand" : { "type": "string" },
+        "autn": { "type" : "string"},
+        "ck" : { "type" : "string" },
+        "ik" : { "type" : "string"},
+        "xres" : { "type" : "string"}
+      },
+      "required": ["rand", "autn", "ck", "ik", "xres"]
+    }
+  },
+ "type": "object",
+ "properties": {
+    "imsi": {
+      "type": "integer"
+    },
+    "avs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "minProperties": 1,
+        "additionalProperties" : {
+          "$ref" : "#/definitions/avs"
+        }
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": ["imsi"]
+}
